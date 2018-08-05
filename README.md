@@ -1,4 +1,9 @@
-# This is a simple terminal based password manager. 
+# Mord the password manager.
+This is a very simple password manager made as a fun side project. It is fittingly named after the
+petty, dimwitted and cruel turnkey from [A Song of Ice and Fire].
+
+[A Song of Ice and Fire]: http://gameofthrones.wikia.com/wiki/Mord
+
 ## Install
 Clone repository, navigate to project folder.
 Add this to your bashrc file.
