@@ -3,7 +3,7 @@
 Clone repository, navigate to project folder.
 Add this to your bashrc file.
 ```bash
-export PWDMNG_HOME='<Path-To-mord>'
+export MORD_HOME='<Path-To-mord>'
 ```
 
 ## Usage

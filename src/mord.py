@@ -138,7 +138,7 @@ def get_database(ifp,pwd):
     return
 
 def initialize_db():
-    path = os.getenv('PWDMNG_HOME', '')
+    path = os.getenv('MORD_HOME', '')
     db_location = path+'/.db'
     try:
         return db.database(db_location)
