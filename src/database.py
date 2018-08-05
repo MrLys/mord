@@ -5,7 +5,7 @@ import importer
 
 class database():
     __db = dict()
-    __encrypted_db = dict()
+    __encrypted_backup = dict()
 
     def __init__(self, db_location):
         self.db_location = db_location
