@@ -1,8 +1,6 @@
-from mord_crypto import *
+from mord_utils import safe_input, safe_getpass, sensitive_on_screen
+from database import Database
 from colors import *
-from mord_utils import *
-from getpass import getpass
-from Databse import Database
 import pyperclip
 import sys
 import time
@@ -124,18 +122,6 @@ def find_app(db):
 
 
 
-def get_database(ifp,pwd):
-    stream = decrypt(ifp,pwd)
-    db = dict()
-    try:
-        db = yaml.load(stream)
-    except yaml.YAMLError as exc:
-        print(exc)
-        return None
-    except UnicodeDecodeError as ude:
-        print('Incorrect pwd!')
-        return None
-    return
 
 def initialize_db():
     path = os.getenv('MORD_HOME', '')
