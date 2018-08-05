@@ -9,7 +9,7 @@ Clone repository, navigate to project folder.
 1. Install pip3 if you have not already.
 2. Run
 ```bash
-pip3 install pycryptodome
+pip3 install pycryptodome pyperclip
 ```
 3. Add this to your bashrc file.
 ```bash
