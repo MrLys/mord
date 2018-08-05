@@ -14,9 +14,9 @@ import yaml
 
 def add(db):
     entry = dict()
-    name = safe_input("Username:")
+    name = safe_input("name:")
     username = safe_input("Username:")
-    if username < 0:
+    if len(username) == 0:
         print("Cancelling add of new item")
         return
     entry['username'] = username
@@ -27,37 +27,37 @@ def add(db):
     else:
         password = safe_getpass("Password:")
 
-    if password < 0:
+    if len(password) == 0:
         print("Cancelling add of new item")
         return
     entry['password'] = password
 
     url = safe_input("url:")
-    if url < 0:
+    if len(url) == 0:
         print("Cancelling add of new item")
         return
     entry['url'] = url
 
-    extra = safe_input("grouping:")
-    if extra < 0:
+    extra = safe_input("extra:")
+    if len(extra) == 0:
         print("Cancelling add of new item")
         return
     entry['extra'] = extra
 
     grouping = safe_input("grouping:")
-    if grouping < 0:
+    if len(grouping) == 0:
         print("Cancelling add of new item")
         return
     entry['grouping'] = grouping
 
     fav  = safe_input("fav:")
-    if fav < 0:
+    if len(fav) == 0:
         print("Cancelling add of new item")
         return
     entry['fav'] = fav
 
     # Check for existing
-    db.add(entry)
+    db.add(entry,name)
 
 def gen_passphrase_helper(db):
     string = safe_input("number of words(default 5): ")
