@@ -8,7 +8,7 @@ def get_words():
     try:
         with open('/usr/share/dict/words') as f:
             return [word.strip() for word in f]
-    except FileNotFoundError efnfe:
+    except FileNotFoundError as efnfe:
         return []
 
 def generate_passphrase(word_num=5):
