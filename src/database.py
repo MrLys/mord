@@ -4,6 +4,7 @@ import yaml
 import importer
 
 class database():
+    __db = []
     def __init__(self, db_location):
         self.db_location = db_location
         ret = self.__read_db()
@@ -22,7 +23,8 @@ class database():
             return -1
         self.__db = decrypt(self.encrypted_db,db_password)
         if not self.__verify_password():
-            self.__decrypt_db()
+            return self.__decrypt_db()
+        return 0
 
     def __read_db(self):
         try:
@@ -56,12 +58,14 @@ class database():
     def find(self, name):
         return self.__db.get(name,'')
 
-    def add(self, name, entry):
-        if not db.find(entry['name']) is '':
-            self.__db[entry['name']] = entry
+    def add(self, entry, name):
+        existing_entry = self.find(name)
+        print(existing_entry)
+        if self.find(name) is '':
+            self.__db[name] = entry
         else: # make sure to not overwrite existing entry.
             # TODO. Implement a better solution.
-            self.add(self,name + entry['username'][:5], entry)
+            self.add(self, entry, name + entry['username'][:5])
 
     def get_keys(self):
         for key in self.__db:
