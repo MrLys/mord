@@ -29,6 +29,10 @@ a.save()
 ```
 
 ### Running the mord application
+Just navigate to the src folder.
+```bash
+python3 mord.py
+```
 
 # Q&A
 
@@ -37,7 +41,7 @@ passwords are safely stored locally. It uses AES CBC mode with a 256 bit key, an
 password digest.
 * When decrypted in memory can it then be accessed by a malicious actor? Probably, but if your
   machine has been breached and someone with malicious intent can access its memory, a different
-  password manager wouldn't have done any better. 
+  password manager wouldn't have done any better.
 
 
 # TODO
