@@ -11,7 +11,9 @@ class database():
             print("Could not initiate database!")
             return None
         elif ret == 0:
-            self.__decrypt_db()
+            if self.__decrypt_db() < 0:
+                raise EOFError
+
 
     def __decrypt_db(self):
         db_password = safe_getpass("Database password:")

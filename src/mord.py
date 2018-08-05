@@ -140,7 +140,10 @@ def get_database(ifp,pwd):
 def initialize_db():
     path = os.getenv('PWDMNG_HOME', '')
     db_location = path+'/.db'
-    return db.database(db_location)
+    try:
+        return db.database(db_location)
+    except EOFError as eof:
+        return None
 
 def main():
     db = initialize_db()
