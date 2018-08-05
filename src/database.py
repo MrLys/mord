@@ -11,7 +11,7 @@ class database():
         self.db_location = db_location
         ret = self.__read_db()
         if ret  < 0:
-            print("Could not initiate database!")
+            print('Could not initiate database!')
             return None
         elif ret == 0:
             if self.__decrypt_db() < 0:
@@ -19,9 +19,9 @@ class database():
 
 
     def __decrypt_db(self):
-        db_password = safe_getpass("Database password:")
+        db_password = safe_getpass('Database password:')
         if db_password == -1:
-            print("Could not initiate database")
+            print('Could not initiate database')
             return -1
         self.__db = decrypt(self.encrypted_db,db_password)
         if not self.__verify_password():
@@ -47,14 +47,14 @@ class database():
         try:
             self.__db  = yaml.load(self.__db)
             if self.__db is None:
-                print("Incorrect password or empty database!")
+                print('Incorrect password or empty database!')
                 return False
             return True
         except yaml.YAMLError as exc:
-            print("Incorrect password!")
+            print('Incorrect password!')
             return False
         except UnicodeError as ude:
-            print("Incorrect password!")
+            print('Incorrect password!')
             return False
 
     def find(self, name):
@@ -75,15 +75,15 @@ class database():
 
     def save(self):
         if not self.__db:
-            print("No database to save")
+            print('No database to save')
             return
-        db_password = safe_getpass("Database password:")
+        db_password = safe_getpass('Database password:')
         if db_password == -1:
-            print("Could not save database")
+            print('Could not save database')
             return -1
-        verify_db_password = safe_getpass("Verify database password:")
+        verify_db_password = safe_getpass('Verify database password:')
         if not db_password == verify_db_password:
-            print("Passwords did not match, please try again!")
+            print('Passwords did not match, please try again!')
             return self.save()
 
         encrypted_db = encrypt(self.__db,db_password)
@@ -93,12 +93,12 @@ class database():
                     out.write(self.__encrypted_backup)
         except TypeError as ete:
             print(ete)
-            print("Something went wrong with saving backup database")
+            print('Something went wrong with saving backup database')
         with open(self.db_location,'wb') as out:
             out.write(encrypted_db)
 
     def new_database(self):
-        print("Created new database")
+        print('Created new database')
         self.__encrypted_backup = dict()
         self.__db = dict()
 

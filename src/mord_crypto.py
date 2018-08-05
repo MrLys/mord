@@ -10,9 +10,9 @@ import base64
 # To make this openssl compatible, this function tries to mimic:
 # https://www.openssl.org/docs/manmaster/man3/generate_key_and_iv.html
 def generate_key_and_iv(pwd, salt, key_len, iv_len):
-    """
+    '''
     Derive the key and the IV from the given pwd and salt.
-    """
+    '''
     pwd = pwd.encode('ascii','ignore')
     pwd_dgs = sha512(pwd + salt).digest()
     tmp_dgs = [ pwd_dgs ]
@@ -41,9 +41,10 @@ def generate_salt():
     # Needs some research
     alphabet = string.ascii_letters + string.digits
     return ''.join(secrets.choice(alphabet) for i in range(8))
+
 # Encrypt by openssl standard.
 # openssl pwdmanager openssl enc  -aes-256-cbc -md sha512 -a -in <input file> \
-# -out <output file> 
+# -out <output file>
 def encrypt(data, pwd):
     salt =  generate_salt().encode('ascii')
     key, iv = generate_key_and_iv(pwd, salt, 32, 16)
@@ -52,11 +53,10 @@ def encrypt(data, pwd):
     # PKCS#7 padding
     data = str(data).encode('ascii')
     padding =  16 - (len(data) % 16)
-    #pt_p = data + (chr(padding) * padding)
     ct = encrypt_suite.encrypt(pad(data, AES.block_size))
     salted_ct = 'Salted__'.encode('ascii') + salt + ct
     encoded_cipher = base64.b64encode(salted_ct)
     return encoded_cipher
 
 if __name__ == '__main__':
-    print("This is only a library, import and call the wanted functions!")
+    print('This is only a library, import and call the wanted functions!')
