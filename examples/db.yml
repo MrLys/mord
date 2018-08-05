@@ -1,0 +1,15 @@
+facebook:
+    url:
+        http://www.facebook.com
+    username:
+        John Snow
+    password:
+        LoveMeSomeYgritte
+    extra:
+        My reminders; Add Daenerys on facebook?
+    grouping:
+        Social
+    fav:
+        1
+
+
