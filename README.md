@@ -1,6 +1,10 @@
 # This is a simple terminal based password manager. 
 ## Install
 Clone repository, navigate to project folder.
+Add this to your bashrc file.
+```bash
+export PWDMNG_HOME='<Path-To-mord>'
+```
 
 ## Usage
 ### Using python/ipython shell:
