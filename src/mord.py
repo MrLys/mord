@@ -2,7 +2,7 @@ from mord_crypto import *
 from colors import *
 from mord_utils import *
 from getpass import getpass
-import database
+from Databse import Database
 import pyperclip
 import sys
 import time
@@ -21,7 +21,7 @@ def add(db):
         return
     entry['username'] = username
     decision = safe_input('Want to strong generated password?')
-    password= ''
+    password = ''
     if 'yes' in decision or 'y' in decision:
         password = password_generator.generate_passphrase(5)
     else:
@@ -77,7 +77,7 @@ def gen_passphrase_helper(db):
 
 
 def handle_reponses(arg, db):
-    if   arg == '1' or arg == 'find' or arg == 'f':
+    if arg == '1' or arg == 'find' or arg == 'f':
         return find_app(db)
     elif arg == '2' or arg == 'add' or arg == 'a':
         return add(db)
@@ -141,7 +141,7 @@ def initialize_db():
     path = os.getenv('MORD_HOME', '')
     db_location = path+'/.db'
     try:
-        return database.database(db_location)
+        return Database(db_location)
     except EOFError as eof:
         return None
 

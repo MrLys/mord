@@ -29,7 +29,7 @@ def generate_passphrase_characters(min_characters=24):
     # Average word len in dic(on mac) is 9.6 chars.
     if min_characters < 12:
         print('Having a passphrase with less than 12 characters are not acceptable. You´ll get a larger one!')
-        min_characters=24
+        min_characters = 24
     word_num = math.ceil(min_characters/9.6)
     words = get_words()
     if not words:

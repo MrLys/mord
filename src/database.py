@@ -3,7 +3,7 @@ from mord_utils import *
 import yaml
 import importer
 
-class database():
+class Database():
     __db = dict()
     __encrypted_backup = dict()
 
