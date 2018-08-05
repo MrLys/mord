@@ -6,7 +6,12 @@ petty, dimwitted and cruel turnkey from [A Song of Ice and Fire].
 
 ## Install
 Clone repository, navigate to project folder.
-Add this to your bashrc file.
+1. Install pip3 if you have not already.
+2. Run
+```bash
+pip3 install pycryptodome
+```
+3. Add this to your bashrc file.
 ```bash
 export MORD_HOME='<Path-To-mord>'
 ```
