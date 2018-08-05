@@ -18,8 +18,8 @@ def generate_passphrase(word_num=5):
     words = get_words()
     if not words:
         print("Dictionary could not be found, will therefor not be generating",
-                "a passphrase, but a strong random password.",
-        return ''.join(secrets.choice(get_ascii_characters()) for i in
+                "a passphrase, but a strong random password.")
+        return ''.join(secrets.choice(get_ascii_characters()) for i in \
             range(word_num*8))
 
     return ' '.join(secrets.choice(words) for i in range(word_num))
@@ -33,8 +33,8 @@ def generate_passphrase_characters(min_characters=24):
     words = get_words()
     if not words:
         print("Dictionary could not be found, will therefor not be generating",
-                "a passphrase, but a strong random password.",
-        return ''.join(secrets.choice(get_ascii_characters()) for i in
+                "a passphrase, but a strong random password.")
+        return ''.join(secrets.choice(get_ascii_characters()) for i in \
             range(word_num*8))
     pharse = ' '.join(secrets.choice(words) for i in range(word_num))
     while len(phrase) < min_characters:
