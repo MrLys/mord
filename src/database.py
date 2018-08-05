@@ -4,7 +4,7 @@ import yaml
 import importer
 
 class database():
-    __db = []
+    __db = dict()
     def __init__(self, db_location):
         self.db_location = db_location
         ret = self.__read_db()
