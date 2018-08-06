@@ -20,7 +20,7 @@ class Database():
 
     def __decrypt_db(self):
         db_password = safe_getpass('Database password:')
-        if db_password == -1:
+        if len(db_password) == 1:
             print('Could not initiate database')
             return -1
         self.__db = decrypt(self.encrypted_db,db_password)
@@ -78,7 +78,7 @@ class Database():
             print('No database to save')
             return
         db_password = safe_getpass('Database password:')
-        if db_password == -1:
+        if len(db_password) == 0:
             print('Could not save database')
             return -1
         verify_db_password = safe_getpass('Verify database password:')
